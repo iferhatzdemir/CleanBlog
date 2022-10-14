@@ -43,3 +43,15 @@ app.post('/posts', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server ${port} portunda dinleniyor`);
 });
+
+app.get("/post/:post_id _method=DELETE", async (res, req) => {
+  console.log(`Silinen Data: ${Posts.findById(req.params.post_id)}`)
+  await Posts.findByIdAndDelete(req.params.post_id)
+
+
+})
+
+app.get('/post/:post_id', async (req, res) => { // burada post idsini yakalayarak
+  const post = await Posts.findById(req.params.post_id) // id ye sahip post çekildi 
+  res.render('post', { post: post })
+})
