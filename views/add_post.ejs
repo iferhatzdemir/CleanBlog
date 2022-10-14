@@ -14,7 +14,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="post" action="/blogs" novalidate>
+        <form novalidate
+        method="post"
+        action="/posts"
+        encType="application/json">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Title</label>
@@ -24,8 +27,8 @@
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <label>Post Detail</label>
-              <textarea type="text" name="detail" rows="5" class="form-control" placeholder="Add New Blog Detail" id="message" required data-validation-required-message="Please enter a message."></textarea>
+              <label>Post Description</label>
+              <textarea type="text" name="description" rows="5" class="form-control" placeholder="Add New Blog Detail" id="message" required data-validation-required-message="Please enter a message."></textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>
