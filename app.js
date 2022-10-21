@@ -7,13 +7,20 @@ const postController = require('./controllers/postControllers');
 const pageController = require('./controllers/pageControllers');
 const methodOverride = require('method-override');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //VİEW ENGİNE
-mongoose.connect('mongodb://localhost/cb-test-db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect('DB CONNECTION STRING', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('DB CONNECTED');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 app.set('view engine', 'ejs');
 
 //MİDDLEWARE

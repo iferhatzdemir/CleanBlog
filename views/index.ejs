@@ -21,14 +21,38 @@
                   <%= posts[i].title %>
                 </h2>
                 <h3 class="post-subtitle">
-                  <%= posts[i].description %>
+                  <%= posts[i].description.substr(0,100) %>...
                 </h3>
                 <hr>
                   <p><i><%=posts[i].date%></i></p>
               </a>
           <% } %>
         </div>
-               
+        <div>
+          <% let pages; if (pages > 0) { %>
+          <ul class="nav tm-paging-links">
+            <% for (i=1; i <=pages; i++) { %> <% if (i == current) { %>
+            <li class="nav-item active">
+              <a href="/?page=<%= i %>" class="nav-link tm-paging-link"
+                ><%= i %></a
+              >
+            </li>
+            <% } else if (i < pages) { %>
+            <li class="nav-item">
+              <a href="/?page=<%= i %>" class="nav-link tm-paging-link"
+                ><%= i %></a
+              >
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a href="/?page=<%= i %>" class="nav-link tm-paging-link"
+                >></a
+              >
+            </li>
+            <% } %> <% } %>
+          </ul>
+          <% } %>
+        </div>
               
         </div>
       </div>
