@@ -10,10 +10,20 @@ const app = express();
 const port = 3000;
 
 //VİEW ENGİNE
-mongoose.connect('mongodb://localhost/cb-test-db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(
+    'mongodb+srv://iferhatzdemir:F3rh4t32.@cluster0.cu6pjzc.mongodb.net/cleanblog-db?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    console.log('DB CONNECTED');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 app.set('view engine', 'ejs');
 
 //MİDDLEWARE
