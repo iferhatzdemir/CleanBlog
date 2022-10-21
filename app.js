@@ -7,7 +7,7 @@ const postController = require('./controllers/postControllers');
 const pageController = require('./controllers/pageControllers');
 const methodOverride = require('method-override');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //VİEW ENGİNE
 mongoose
