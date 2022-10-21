@@ -11,13 +11,10 @@ const port = process.env.PORT || 3000;
 
 //VİEW ENGİNE
 mongoose
-  .connect(
-    'mongodb+srv://iferhatzdemir:F3rh4t32.@cluster0.cu6pjzc.mongodb.net/cleanblog-db?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect('DB CONNECTION STRING', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('DB CONNECTED');
   })
